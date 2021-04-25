@@ -52,6 +52,7 @@
 7. No HATEOAS support (which I would add with Spring Hateoas)   
 8. Filters are not configurable at runtime
 9. Filters are not definable at runtime
+10. No Gradle (which I would recommend over Maven)
 
 ## Build and Run
 
