@@ -58,7 +58,8 @@
 Build the application
 
 ```bash
-./mvnw clean install
+chmod 755 mvnw && \
+  ./mvnw clean install
 ```
 
 Run the application
