@@ -1,0 +1,5 @@
+${AnsiColor.BRIGHT_RED}
+=======================================
+== Trade Reporting Engine
+=======================================
+${AnsiColor.DEFAULT}
