@@ -3,6 +3,7 @@ package com.vanguard.trading.service;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.mockito.Mockito.when;
 
+import com.vanguard.trading.domain.api.TradeFilter;
 import com.vanguard.trading.domain.jpa.Trade;
 import com.vanguard.trading.repository.TradeRepository;
 import java.math.BigDecimal;
@@ -29,19 +30,19 @@ class TradingServiceTests {
 
     @Test
     public void shouldReturnValidTradeWhenAnagramFalseAndSellerTrue() {
-        assertThat(new TradingService(repository, trade -> true, trade -> false).filtered())
+        assertThat(new TradingService(repository, trade -> true, trade -> false).filtered(new TradeFilter()))
             .contains(expected);
     }
 
     @Test
     public void shouldNotReturnInValidTradeWhenAnagramTrueAndSellerTrue() {
-        assertThat(new TradingService(repository, trade -> true, trade -> true).filtered())
+        assertThat(new TradingService(repository, trade -> true, trade -> true).filtered(new TradeFilter()))
             .isEmpty();
     }
 
     @Test
     public void shouldNotReturnInValidTradeWhenAnagramFalseButAndSellerIncorrect() {
-        assertThat(new TradingService(repository, trade -> false, trade -> false).filtered())
+        assertThat(new TradingService(repository, trade -> false, trade -> false).filtered(new TradeFilter()))
             .isEmpty();
     }
 

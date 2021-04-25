@@ -82,3 +82,16 @@ Additional documentation can be found by generating the generic documentation
 ```bash
 ./mvnw package site
 ```
+
+## Addendum
+
+I was unsure as to the filtering requirement and so added the ability to refine 
+filter criteria using the JpaRepository Examples and JpaSpecificationExecutor Specifications
+
+The api may now be exercised;
+
+```bash
+curl --request GET \
+     --header "Accept: application/json" \
+     "http://localhost:8080/trades?ammount=100"
+```

@@ -1,11 +1,11 @@
 package com.vanguard.trading.service;
 
+import com.vanguard.trading.domain.api.TradeFilter;
 import com.vanguard.trading.domain.jpa.Trade;
 import com.vanguard.trading.repository.TradeRepository;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,8 +26,9 @@ public class TradingService {
         this.anagramFilter = anagramFilter;
     }
 
-    public List<Trade> filtered() {
-        return StreamSupport.stream(repository.findAll().spliterator(), true)
+    public List<Trade> filtered(TradeFilter filter) {
+        return repository.findAll(filter.toExample())
+            .stream()
             .filter(anagramFilter.negate())
             .filter(sellerFilter)
             .collect(Collectors.toList());
