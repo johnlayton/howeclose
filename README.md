@@ -34,7 +34,7 @@
 
 #### Import
 
-1. A Single ConfirmationImport command is configured with the packaged 
+1. A single ConfirmationImport command is configured with the packaged 
    sample events xml files as Resource[] and the ConfirmationService.
 2. The ConfirmationImport is responsible for streaming the files, mapping
    the XML into the RequestConfirmation and saving as a Trade using the
